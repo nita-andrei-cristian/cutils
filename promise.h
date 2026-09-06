@@ -7,8 +7,7 @@ typedef struct {
     pthread_mutex_t lock;
     pthread_cond_t  cond;
     _Bool ready;
-    void *result; // worker writes here when done
-    int error; // status
+    void *result;
 } Promise;
 
 void promise_init(Promise *p);

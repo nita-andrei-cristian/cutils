@@ -7,7 +7,6 @@ void promise_init(Promise *p) {
     pthread_cond_init(&p->cond, NULL);
     p->ready = 0;
     p->result = NULL;
-    p->error = 0;
 }
 
 // Called by the CALLER thread — blocks until the worker fulfills it
