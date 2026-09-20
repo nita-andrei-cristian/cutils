@@ -28,7 +28,10 @@ void cassert_impl(
 	...
 ) PRINTF_LIKE(5, 6);
 
-#define ASSERT_MAX(a, max_val, msg) (cassert((a) <= (max_val), (msg)))
-#define ASSERT_MIN(a, min_val, msg) (cassert((a) >= (max_val), (msg)))
+#define CASSERT_MAX(a, max_val, msg, ...) \
+    cassert((a) <= (max_val), msg, ##__VA_ARGS__)
+
+#define CASSERT_MIN(a, min_val, msg, ...) \
+    cassert((a) >= (min_val), msg, ##__VA_ARGS__)
 
 #endif
